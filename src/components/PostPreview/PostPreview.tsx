@@ -17,7 +17,9 @@ function PostPreview({ postPreview, basePath }: Props) {
     <div className={style}>
       <Link href={`${basePath}/${postPreview.slug.current}`}>
         <a>
-          <img src={postPreview.imageUrl} />
+          <div className="image-wrapper">
+            <img src={postPreview.imageUrl} />
+          </div>
           <h2>{postPreview.title}</h2>
         </a>
       </Link>

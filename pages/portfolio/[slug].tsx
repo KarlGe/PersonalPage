@@ -23,9 +23,9 @@ function Slug(props) {
     return null;
   }
   return (
-    <div>
+    <>
       <Post post={post} />
-    </div>
+    </>
   );
 }
 

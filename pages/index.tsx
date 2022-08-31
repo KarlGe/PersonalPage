@@ -1,37 +1,13 @@
 import React from "react";
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import PostPreview from "../src/components/PostPreview";
-import sanityClient from "../src/sanity";
+import { usePostList } from "../src/hooks/usePostList";
+import PostList from "../src/components/PostList/PostList";
 
 export default function Home() {
-  const [posts, setPosts] = useState(null);
-  useEffect(() => {
-    const query =
-      '*[_type == "post"]{body, "imageUrl": mainImage.asset->url, slug, title}';
-    const params = {};
-    sanityClient.fetch(query, params).then((postResults) => {
-      setPosts(postResults);
-    });
-  }, []);
+  const { data, error } = usePostList();
 
   return (
-    <div className="container">
-      <Head>
-        <title>Karl G. Georgsen</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">Page title</h1>
-        <div>
-          {posts?.map((post) => (
-            <PostPreview basePath="portfolio" postPreview={post} />
-          ))}
-        </div>
-      </main>
-
-      <footer></footer>
-    </div>
+    <>
+      <PostList posts={data} />
+    </>
   );
 }
