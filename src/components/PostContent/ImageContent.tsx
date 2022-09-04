@@ -7,8 +7,6 @@ import { sizes } from "../../config/vars";
 type Props = { value: SanityImageSource; width?: number };
 
 function ImageContent({ value, width }: Props) {
-  console.log();
-
   return <img src={urlForImage(value, width).url()} />;
 }
 

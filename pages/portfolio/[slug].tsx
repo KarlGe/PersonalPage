@@ -23,13 +23,8 @@ function Slug(props) {
   if (!post) {
     return null;
   }
-  console.log(post);
 
-  return (
-    <Layout title={post.title} variant="post">
-      <Post post={post} />
-    </Layout>
-  );
+  return <Post post={post} />;
 }
 
 export default Slug;

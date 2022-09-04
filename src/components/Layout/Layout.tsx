@@ -3,25 +3,24 @@ import Head from "next/head";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import { useSiteSettings } from "../../hooks/useSiteSettings";
+import { useStore } from "../../store/store";
 import { globalStyles, layoutStyle } from "./layout.linaria";
 
-type LayoutVariant = "default" | "post";
 type Props = {
   children: ReactNode;
-  title?: string;
-  variant?: LayoutVariant;
   className?: string;
 };
 
-function Layout({ children, title, variant, className }: Props) {
+function Layout({ children, className }: Props) {
   const { data, error } = useSiteSettings();
+  const { pageTitle, layoutVariant } = useStore();
   return (
     <div
       className={classNames(
         "page-wrapper",
         layoutStyle,
         globalStyles,
-        variant,
+        layoutVariant,
         className
       )}
     >
@@ -57,9 +56,9 @@ function Layout({ children, title, variant, className }: Props) {
               </ul>
             </nav>
           </div>
-          {title && (
+          {pageTitle && (
             <div>
-              <h2>{title}</h2>
+              <h2>{pageTitle}</h2>
             </div>
           )}
         </header>
