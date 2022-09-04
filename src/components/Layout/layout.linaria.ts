@@ -1,5 +1,5 @@
 import { css } from "linaria";
-import { colors } from "../../config/vars";
+import { colors, sizes } from "../../config/vars";
 
 export const globalStyles = css`
   :global() {
@@ -29,6 +29,10 @@ export const globalStyles = css`
     * {
       font-family: "Source Sans Pro";
       color: ${colors.textColor};
+    }
+    p {
+      color: ${colors.textColor};
+      font-size: 1.375rem;
     }
   }
 `;
@@ -87,18 +91,30 @@ export const layoutStyle = css`
             color: ${colors.textColor};
             text-decoration: none;
           }
-          a.current,
-          a.current:visited {
+          a.active,
+          a:hover,
+          a:focus {
             color: ${colors.accentColor};
           }
         }
       }
     }
   }
+  .main-content {
+    max-width: ${sizes.contentWidthWide}px;
+    margin: auto;
+  }
+  &.post,
+  &.about {
+    header,
+    .main-content {
+      margin: auto;
+      max-width: ${sizes.contentWidth}px;
+    }
+  }
+
   &.post {
     header {
-      max-width: 840px;
-      margin: auto;
       .header-start {
         display: flex;
         gap: 2rem;

@@ -1,10 +1,12 @@
 import classNames from "classnames";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { ReactNode } from "react";
 import { useSiteSettings } from "../../hooks/useSiteSettings";
 import { useStore } from "../../store/store";
 import { globalStyles, layoutStyle } from "./layout.linaria";
+import SectionLink from "./SectionLink";
 
 type Props = {
   children: ReactNode;
@@ -14,6 +16,9 @@ type Props = {
 function Layout({ children, className }: Props) {
   const { data, error } = useSiteSettings();
   const { pageTitle, layoutVariant } = useStore();
+  const { pathname } = useRouter();
+  console.log(pathname);
+
   return (
     <div
       className={classNames(
@@ -44,14 +49,14 @@ function Layout({ children, className }: Props) {
             <nav>
               <ul>
                 <li>
-                  <Link href="/">
-                    <a>Portfolio</a>
-                  </Link>
+                  <SectionLink href="/" currentPath={pathname}>
+                    Portfolio
+                  </SectionLink>
                 </li>
                 <li>
-                  <Link href="/about">
-                    <a>About</a>
-                  </Link>
+                  <SectionLink href="/about" currentPath={pathname}>
+                    About
+                  </SectionLink>
                 </li>
               </ul>
             </nav>
@@ -62,7 +67,7 @@ function Layout({ children, className }: Props) {
             </div>
           )}
         </header>
-        {children}
+        <div className="main-content">{children}</div>
       </main>
       <footer></footer>
     </div>

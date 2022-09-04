@@ -20,12 +20,10 @@ export const style = css`
       position: relative;
       z-index: 1;
     }
-    &::after, h2 {
-      transition: 200ms;
-    }
     &:after {
       border: 1px solid ${colors.accentColor};
       position: absolute;
+      transition: 200ms;
       border-radius: 0.5rem;
       content: "";
       top: ${borderWidth * 2}px;
@@ -44,7 +42,6 @@ export const style = css`
     outline: none;
     h2 {
       color: white;
-      margin-left: 1.5rem;
     }
     text-decoration: none;
     &:after {

@@ -8,8 +8,4 @@ export const style = css`
   img {
     width: 100%;
   }
-  p {
-    color: ${colors.textColor};
-    font-size: 1.375rem;
-  }
 `;

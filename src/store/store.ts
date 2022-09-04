@@ -1,6 +1,6 @@
 import create from "zustand";
 
-export type LayoutVariant = "default" | "post";
+export type LayoutVariant = "default" | "post" | "about";
 
 interface SiteState {
   pageTitle: string;

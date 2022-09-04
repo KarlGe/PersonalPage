@@ -6,4 +6,5 @@ export const colors = {
 
 export const sizes = {
   contentWidth: 840,
+  contentWidthWide: 1140,
 }
