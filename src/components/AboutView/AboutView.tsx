@@ -11,7 +11,7 @@ function AboutView({ aboutData }: Props) {
 
   return (
     <div className={aboutStyle}>
-      <div>
+      <div className="image-wrapper">
         <ImageContent value={aboutData.mainImage} />
       </div>
       <div>

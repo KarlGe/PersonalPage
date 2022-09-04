@@ -17,9 +17,12 @@ export type Post = {
 type Props = { post: Post };
 
 function Post({ post }: Props) {
-  useLayoutSettings(post.title, "post");
+  useLayoutSettings(null, "post");
   return (
     <div className={style}>
+      <div className="title-wrapper">
+      <h1>{post.title}</h1>
+      </div>
       <PostContent content={post.body} />
     </div>
   );
