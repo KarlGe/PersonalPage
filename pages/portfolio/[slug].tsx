@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import sanityClient from "../../src/sanity";
 import React, { useEffect, useState } from "react";
 import Post from "../../src/components/Post";
+import Layout from "../../src/components/Layout/Layout";
 
 function Slug(props) {
   const router = useRouter();
@@ -22,10 +23,12 @@ function Slug(props) {
   if (!post) {
     return null;
   }
+  console.log(post);
+
   return (
-    <>
+    <Layout title={post.title} variant="post">
       <Post post={post} />
-    </>
+    </Layout>
   );
 }
 

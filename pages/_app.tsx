@@ -3,11 +3,7 @@ import React from "react";
 import Layout from "../src/components/Layout/Layout";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+  return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for

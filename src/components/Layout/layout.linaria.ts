@@ -28,6 +28,7 @@ export const globalStyles = css`
     }
     * {
       font-family: "Source Sans Pro";
+      color: ${colors.textColor};
     }
   }
 `;
@@ -42,7 +43,7 @@ export const layoutStyle = css`
   }
   header {
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0;
     margin-bottom: 2rem;
     &:after {
       border-bottom: 2px solid ${colors.darkColor};
@@ -61,7 +62,7 @@ export const layoutStyle = css`
     }
     .page-title,
     .page-title:visited {
-      color: ${colors.darkColor};
+      color: ${colors.textColor};
       text-decoration: none;
       font-weight: 900;
       font-size: 3.6rem;
@@ -83,7 +84,7 @@ export const layoutStyle = css`
           list-style: none;
           a,
           a:visited {
-            color: ${colors.darkColor};
+            color: ${colors.textColor};
             text-decoration: none;
           }
           a.current,
@@ -91,6 +92,35 @@ export const layoutStyle = css`
             color: ${colors.accentColor};
           }
         }
+      }
+    }
+  }
+  &.post {
+    header {
+      max-width: 840px;
+      margin: auto;
+      .header-start {
+        display: flex;
+        gap: 2rem;
+      }
+      h1 {
+        text-align: left;
+        a {
+          font-size: 1.5rem;
+        }
+      }
+      .site-description {
+        display: none;
+      }
+      h2 {
+        font-size: 3rem;
+        margin-top: 1rem;
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+      &:after {
+        margin-left: 0;
+        margin-bottom: 0;
       }
     }
   }
