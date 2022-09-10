@@ -89,8 +89,10 @@ export const layoutStyle = css`
               color: ${colors.accentColor};
             }
           }
-          a:focus {
-            border-bottom-color: ${colors.accentColor};
+          ${mediaQueries.sm} {
+            a:focus {
+              border-bottom-color: ${colors.accentColor};
+            }
           }
         }
       }
