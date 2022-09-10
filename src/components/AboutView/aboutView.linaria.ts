@@ -1,15 +1,20 @@
+import { colors } from "./../../config/vars";
 import { css } from "linaria";
 import { mediaQueries } from "../../helpers/styleHelpers";
+import {
+  makeOffsetBorderPosition,
+  offsetBorderClass,
+} from "../Layout/global.linaria";
 
 export const aboutStyle = css`
-  img {
-    width: 100px;
-    border-radius: .5rem;
-  }
   .image-wrapper {
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
+  }
+  ${offsetBorderClass}:after {
+    ${makeOffsetBorderPosition(-2, 2, 2, -2)}
+    background: ${colors.accentColor};
   }
   padding-top: 1rem;
   gap: 1rem;

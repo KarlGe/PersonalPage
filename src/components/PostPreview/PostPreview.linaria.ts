@@ -1,14 +1,12 @@
 import { css } from "linaria";
-import { colors } from "../../config/vars";
+import { border, colors } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 
-const borderWidth = 10;
-const borderRadius = ".5rem";
 export const style = css`
   img {
     max-width: 100%;
     ${mediaQueries.sm} {
-      border-radius: ${borderRadius};
+      border-radius: ${border.radius.default};
     }
   }
 
@@ -23,18 +21,6 @@ export const style = css`
     * {
       position: relative;
       z-index: 1;
-    }
-    &:after {
-      border: 1px solid ${colors.accentColor};
-      content: "";
-      position: absolute;
-      transition: 200ms;
-      border-radius: 0.5rem;
-      top: ${borderWidth * 2}px;
-      left: ${borderWidth * 2}px;
-      right: -${borderWidth}px;
-      bottom: ${borderWidth * 4}px;
-      z-index: 0;
     }
   }
   a,
@@ -52,11 +38,6 @@ export const style = css`
         color: white;
       }
       text-decoration: none;
-      &:after {
-        background: ${colors.accentColor};
-        bottom: -${borderWidth * 2}px;
-        opacity: 1;
-      }
     }
   }
 `;

@@ -10,7 +10,7 @@ const PortableTextComponents = {
 };
 
 function PostContent({ content }: Props) {
-  return <PortableText value={content} components={PortableTextComponents} />;
+  return <PortableText className="post-content" value={content} components={PortableTextComponents} />;
 }
 
 export default PostContent;

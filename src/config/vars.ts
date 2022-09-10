@@ -1,9 +1,15 @@
 export const colors = {
   darkColor: "#24282d",
+  lightColor: "#f6f7f7",
   accentColor: "#e06d5e",
   textColor: "#24282d",
 };
-
+export const border = {
+  radius: {
+    default: "0.5rem",
+    big: "2rem",
+  },
+};
 export const sizes = {
   contentWidth: 840,
   contentWidthWide: 1140,

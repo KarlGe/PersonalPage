@@ -1,11 +1,12 @@
-import classNames from "classnames";
+import { cx } from "linaria";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { ReactNode } from "react";
 import { useSiteSettings } from "../../hooks/useSiteSettings";
 import { useStore } from "../../store/store";
-import { globalStyles, layoutStyle } from "./layout.linaria";
+import { layoutStyle } from "./layout.linaria";
+import { globalStyles } from "./global.linaria";
 import SectionLink from "./SectionLink";
 
 type Props = {
@@ -21,7 +22,7 @@ function Layout({ children, className }: Props) {
 
   return (
     <div
-      className={classNames(
+      className={cx(
         "page-wrapper",
         layoutStyle,
         globalStyles,

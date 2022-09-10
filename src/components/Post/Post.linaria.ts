@@ -1,7 +1,4 @@
 import { css } from "linaria";
-import { colors } from "../../config/vars";
-
-const borderWidth = 10;
 
 export const style = css`
   max-width: 840px;

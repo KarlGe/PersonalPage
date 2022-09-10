@@ -1,9 +1,16 @@
 import { css } from "linaria";
-import { colors } from "../../config/vars";
+import { border, colors } from "../../config/vars";
 
 export const style = css`
+  .image-gallery-slides {
+    border-radius: ${border.radius.default};
+    overflow: hidden;
+    img {
+      border-radius: 0;
+    }
+  }
   .image-gallery-thumbnail img {
-    border-radius: 8px;
+    border-radius: ${border.radius.default};
   }
   .image-gallery-svg * {
     color: white;
@@ -13,7 +20,7 @@ export const style = css`
     background-color: transparent;
     border-color: transparent;
     border-width: 0;
-    border-bottom-width: 2px;
+    border-bottom-width: 1px;
     margin-right: 4px;
     &:hover,
     &:focus,
