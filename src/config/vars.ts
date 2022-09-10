@@ -10,6 +10,9 @@ export const border = {
     big: "2rem",
   },
 };
+export const shadows = {
+  default: "0 1px 10px rgba(0,0,0,0.4)",
+};
 export const sizes = {
   contentWidth: 840,
   contentWidthWide: 1140,

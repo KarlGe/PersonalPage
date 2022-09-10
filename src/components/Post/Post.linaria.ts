@@ -1,7 +1,6 @@
 import { css } from "linaria";
 
 export const style = css`
-  max-width: 840px;
   margin: auto;
   padding-bottom: 4rem;
   img {

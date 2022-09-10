@@ -30,14 +30,12 @@ export const style = css`
   h2 {
     margin-bottom: 2.5rem;
   }
-  ${mediaQueries.sm} {
-    a:hover,
-    a:focus {
-      outline: none;
-      h2 {
-        color: white;
-      }
-      text-decoration: none;
+  a:hover,
+  a:focus {
+    outline: none;
+    h2 {
+      color: white;
     }
+    text-decoration: none;
   }
 `;

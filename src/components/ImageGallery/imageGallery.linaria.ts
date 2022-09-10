@@ -6,7 +6,7 @@ export const style = css`
     border-radius: ${border.radius.default};
     overflow: hidden;
     img {
-      border-radius: 0;
+      border-radius: 0!important;
     }
   }
   .image-gallery-thumbnail img {

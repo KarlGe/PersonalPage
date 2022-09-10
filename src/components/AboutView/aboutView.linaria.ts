@@ -12,9 +12,11 @@ export const aboutStyle = css`
     justify-content: center;
     margin-bottom: 1rem;
   }
+  img {
+    width: 100px;
+  }
   ${offsetBorderClass}:after {
     ${makeOffsetBorderPosition(-2, 2, 2, -2)}
-    background: ${colors.accentColor};
   }
   padding-top: 1rem;
   gap: 1rem;

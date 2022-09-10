@@ -3,6 +3,7 @@ import { border, colors } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 
 export const offsetBorderWidth = 10;
+export const offsetBorderWidthMobile = 5;
 export const offsetBorderClassName = "has-offset-border";
 export const offsetBorderClass = `.${offsetBorderClassName}`;
 
@@ -13,10 +14,16 @@ export const makeOffsetBorderPosition = (
   left: number
 ) => {
   return `
-  top: ${top * offsetBorderWidth}px;
-  right: ${right * offsetBorderWidth}px;
-  bottom: ${bottom * offsetBorderWidth}px;
-  left: ${left * offsetBorderWidth}px;`;
+  top: ${top * offsetBorderWidthMobile}px;
+  right: ${right * offsetBorderWidthMobile}px;
+  bottom: ${bottom * offsetBorderWidthMobile}px;
+  left: ${left * offsetBorderWidthMobile}px;
+  ${mediaQueries.sm} {
+    top: ${top * offsetBorderWidth}px;
+    right: ${right * offsetBorderWidth}px;
+    bottom: ${bottom * offsetBorderWidth}px;
+    left: ${left * offsetBorderWidth}px;
+  }`;
 };
 
 export const globalStyles = css`
@@ -58,11 +65,8 @@ export const globalStyles = css`
   }
   ${offsetBorderClass} {
     position: relative;
-    &.filled::after {
-      background-color: ${colors.accentColor};
-    }
     &:after {
-      border: 1px solid ${colors.accentColor};
+      background-color: ${colors.accentColor};
       content: "";
       position: absolute;
       transition: 200ms;

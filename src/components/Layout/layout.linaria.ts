@@ -1,5 +1,6 @@
+import { makeOffsetBorderPosition } from "./global.linaria";
 import { css } from "linaria";
-import { border, colors, sizes } from "../../config/vars";
+import { border, colors, shadows, sizes } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 
 export const layoutStyle = css`
@@ -30,7 +31,6 @@ export const layoutStyle = css`
     }
     a:hover,
     a:focus {
-      text-decoration: underline !important;
       outline: none;
     }
     .page-title,
@@ -43,13 +43,25 @@ export const layoutStyle = css`
       ${mediaQueries.sm} {
         font-size: 3.6rem;
       }
+      &:hover,
+      &:focus {
+        color: ${colors.accentColor};
+      }
     }
     p {
       margin: 0.5rem;
     }
     nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       font-size: 1rem;
       font-weight: 900;
+      z-index: 1;
+      padding: 0.5rem;
+      box-shadow: ${shadows.default};
+      background: ${colors.accentColor};
       ul {
         display: flex;
         justify-content: center;
@@ -60,15 +72,35 @@ export const layoutStyle = css`
           list-style: none;
           a,
           a:visited {
-            color: ${colors.textColor};
+            color: ${colors.lightColor};
             text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: 100ms ease-in-out;
+            ${mediaQueries.sm} {
+              color: ${colors.darkColor};
+            }
           }
           a.active,
           a:hover,
           a:focus {
-            color: ${colors.accentColor};
+            text-decoration: none;
+            border-bottom-color: ${colors.lightColor};
+            ${mediaQueries.sm} {
+              color: ${colors.accentColor};
+            }
+          }
+          a:focus {
+            border-bottom-color: ${colors.accentColor};
           }
         }
+      }
+      ${mediaQueries.sm} {
+        position: relative;
+        bottom: unset;
+        left: unset;
+        right: unset;
+        background: none;
+        box-shadow: none;
       }
     }
   }
@@ -76,6 +108,7 @@ export const layoutStyle = css`
     max-width: ${sizes.contentWidthWide}px;
     margin: auto;
     padding: 0 1rem;
+    padding-bottom: 4rem;
     ${mediaQueries.md} {
       padding: 0;
     }
@@ -100,6 +133,7 @@ export const layoutStyle = css`
         padding: 0 1rem;
         ${mediaQueries.sm} {
           justify-content: flex-start;
+          align-items: baseline;
           gap: 2rem;
           padding: 0;
         }
