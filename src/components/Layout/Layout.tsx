@@ -59,6 +59,11 @@ function Layout({ children, className }: Props) {
                     About
                   </SectionLink>
                 </li>
+                <li>
+                  <SectionLink href="/other" currentPath={pathname}>
+                    Other
+                  </SectionLink>
+                </li>
               </ul>
             </nav>
           </div>
