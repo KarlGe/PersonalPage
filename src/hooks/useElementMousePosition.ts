@@ -1,9 +1,8 @@
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import throttle from "lodash/throttle";
 
 export const useElementMousePosition = () => {
   const elementRef = useRef<HTMLElement>(null);
-  const [dimensions, setDimensions] = useState<DOMRect>(null);
 
   const setAttributes = (posX: number, posY: number) => {
     elementRef.current.style.setProperty("--mouse-pos-x", `${posX}`);
@@ -11,7 +10,8 @@ export const useElementMousePosition = () => {
   };
 
   const getMousePosition = (e: MouseEvent) => {
-    const { left, top, width, height } = dimensions;
+    const { left, top, width, height } =
+      elementRef.current.getBoundingClientRect();
     const { pageX, pageY } = e;
 
     /**
@@ -23,28 +23,19 @@ export const useElementMousePosition = () => {
     setTimeout(() => setAttributes(0, 0), 100);
   };
 
-  const mousePositionFunc = useMemo(
-    () => throttle(getMousePosition, 100),
-    [dimensions]
-  );
+  const mousePositionFunc = useMemo(() => throttle(getMousePosition, 100), []);
 
   useEffect(() => {
-    if (dimensions && elementRef && elementRef.current) {
+    if (elementRef && elementRef.current) {
       elementRef.current.addEventListener("mousemove", mousePositionFunc);
       elementRef.current.addEventListener("mouseleave", resetPosition);
     }
     return () => {
       if (elementRef.current) {
-        console.log("Removing");
-
         elementRef.current.removeEventListener("mousemove", mousePositionFunc);
         elementRef.current.addEventListener("mouseleave", resetPosition);
       }
     };
-  }, [dimensions]);
-
-  useEffect(() => {
-    setDimensions(elementRef.current.getBoundingClientRect());
   }, []);
 
   return { elementRef };
