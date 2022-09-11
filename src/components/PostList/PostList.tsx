@@ -8,7 +8,7 @@ function PostList({ posts }: Props) {
   return (
     <div className={listStyle}>
       {posts?.map((post) => (
-        <PostPreview basePath="portfolio" postPreview={post} />
+        <PostPreview key={post.slug.current} basePath="portfolio" postPreview={post} />
       ))}
     </div>
   );

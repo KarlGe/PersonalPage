@@ -73,6 +73,10 @@ export const globalStyles = css`
       border-radius: ${border.radius.default};
       ${makeOffsetBorderPosition(2, -2, -2, 2)}
       z-index: 0;
+      transform: translate(
+        calc(var(--mouse-pos-x) * 5px),
+        calc(var(--mouse-pos-y) * 5px)
+      );
     }
     > * {
       position: relative;

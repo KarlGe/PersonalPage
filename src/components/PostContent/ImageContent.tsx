@@ -3,6 +3,7 @@ import { urlForImage } from "../../sanity/sanity";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { sizes } from "../../config/vars";
 import BorderOffsetWrapper from "../atoms/BorderOffsetWrapper/BorderOffsetWrapper";
+import { useElementMousePosition } from "../../hooks/useElementMousePosition";
 
 type Props = { value: SanityImageSource; width?: number };
 
