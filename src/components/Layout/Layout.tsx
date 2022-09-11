@@ -48,7 +48,6 @@ function Layout({ children, className }: Props) {
                 <a className="page-title">{data?.title}</a>
               </Link>
             </h1>
-            <p className="site-description">{data?.description}</p>
             <nav>
               <ul>
                 <li>
