@@ -8,6 +8,7 @@ import { useStore } from "../../store/store";
 import { layoutStyle } from "./layout.linaria";
 import { globalStyles } from "./global.linaria";
 import SectionLink from "./SectionLink";
+import { useRouterLoading } from "../../hooks/useRouterLoading";
 
 type Props = {
   children: ReactNode;
@@ -18,12 +19,13 @@ function Layout({ children, className }: Props) {
   const { data, error } = useSiteSettings();
   const { pageTitle, layoutVariant } = useStore();
   const { pathname } = useRouter();
-  console.log(pathname);
+  const loading = useRouterLoading();
 
   return (
     <div
       className={cx(
         "page-wrapper",
+        !loading && 'loaded',
         layoutStyle,
         globalStyles,
         layoutVariant,

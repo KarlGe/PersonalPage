@@ -9,7 +9,17 @@ export const layoutStyle = css`
   ${mediaQueries.sm} {
     margin: 1.25rem;
   }
-  main {
+  .main-content {
+    opacity: 0;
+  }
+  &.loaded {
+    .main-content {
+      transition: opacity 250ms;
+      opacity: 1;
+    }
+  }
+  main,
+  header {
     max-width: 1140px;
     margin: auto;
   }
