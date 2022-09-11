@@ -3,11 +3,15 @@ import sanityClient from "../../src/sanity";
 import React, { useEffect, useState } from "react";
 import Post from "../../src/components/Post";
 import Layout from "../../src/components/Layout/Layout";
+import { useLayoutSettings } from "../../src/hooks/useLayoutSettings";
 
 function Slug(props) {
   const router = useRouter();
   const { slug } = router.query;
   const [post, setPost] = useState(null);
+  
+  useLayoutSettings(null, "post");
+
   useEffect(() => {
     if (!slug) {
       return;

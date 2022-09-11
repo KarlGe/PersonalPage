@@ -5,9 +5,7 @@ import { mediaQueries } from "../../helpers/styleHelpers";
 export const style = css`
   img {
     max-width: 100%;
-    ${mediaQueries.sm} {
-      border-radius: ${border.radius.default};
-    }
+    border-radius: ${border.radius.default};
   }
 
   text-align: center;

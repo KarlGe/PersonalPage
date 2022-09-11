@@ -12,7 +12,7 @@ interface SiteState {
 export const useStore = create<SiteState>((set) => ({
   pageTitle: undefined,
   setPageTitle: (newPageTitle) => set(() => ({ pageTitle: newPageTitle })),
-  layoutVariant: "default",
+  layoutVariant: undefined,
   setLayoutVariant: (newLayoutVariant) =>
     set(() => ({ layoutVariant: newLayoutVariant })),
 }));

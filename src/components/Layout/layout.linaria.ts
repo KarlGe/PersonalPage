@@ -125,6 +125,10 @@ export const layoutStyle = css`
       padding: 0;
     }
   }
+  opacity: 0;
+  &.post, &.about, &.default {
+    opacity: 1;
+  }
   &.post,
   &.about {
     header,
@@ -136,7 +140,6 @@ export const layoutStyle = css`
       }
     }
   }
-
   &.post {
     header {
       .header-start {
