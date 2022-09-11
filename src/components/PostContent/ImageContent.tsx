@@ -14,15 +14,6 @@ function ImageContent({ value, width }: Props) {
     </BorderOffsetWrapper>
   );
 }
-
-export interface CodeBlock {
-  _type: "image";
-}
-
-export const ImageTest: PortableTextComponent<CodeBlock> = ({ value }) => {
-  return <ImageContent value={value} />;
-};
-
 ImageContent.defaultProps = {
   width: sizes.contentWidth,
 };
