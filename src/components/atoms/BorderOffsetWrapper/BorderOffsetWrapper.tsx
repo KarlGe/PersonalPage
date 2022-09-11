@@ -11,7 +11,7 @@ function BorderOffsetWrapper({ children, filled }: Props) {
   return (
     <div
       className={cx(offsetBorderClassName, filled && "filled")}
-      ref={elementRef}
+      ref={elementRef as React.RefObject<HTMLDivElement>}
     >
       {children}
     </div>

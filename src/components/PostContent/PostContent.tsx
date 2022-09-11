@@ -6,11 +6,18 @@ import ImageGalleryContent from "./ImageGalleryContent";
 type Props = { content: any[] };
 
 const PortableTextComponents = {
-  types: { image: ImageContent, imageGallery: ImageGalleryContent },
+  types: {
+    image: (value) => <ImageContent value={value} />,
+    imageGallery: ImageGalleryContent,
+  },
 };
 
 function PostContent({ content }: Props) {
-  return <PortableText className="post-content" value={content} components={PortableTextComponents} />;
+  return (
+    <div className="post-content">
+      <PortableText value={content} components={PortableTextComponents} />
+    </div>
+  );
 }
 
 export default PostContent;

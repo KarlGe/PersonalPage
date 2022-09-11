@@ -3,7 +3,7 @@ import { urlForImage } from "../../sanity/sanity";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { sizes } from "../../config/vars";
 import BorderOffsetWrapper from "../atoms/BorderOffsetWrapper/BorderOffsetWrapper";
-import { useElementMousePosition } from "../../hooks/useElementMousePosition";
+import { PortableTextComponent } from "@portabletext/react";
 
 type Props = { value: SanityImageSource; width?: number };
 
@@ -14,6 +14,14 @@ function ImageContent({ value, width }: Props) {
     </BorderOffsetWrapper>
   );
 }
+
+export interface CodeBlock {
+  _type: "image";
+}
+
+export const ImageTest: PortableTextComponent<CodeBlock> = ({ value }) => {
+  return <ImageContent value={value} />;
+};
 
 ImageContent.defaultProps = {
   width: sizes.contentWidth,

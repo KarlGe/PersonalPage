@@ -18,7 +18,10 @@ function PostPreview({ postPreview, basePath }: Props) {
   return (
     <div className={style}>
       <Link href={`${basePath}/${postPreview.slug.current}`}>
-        <a className="has-offset-border" ref={elementRef}>
+        <a
+          className="has-offset-border"
+          ref={elementRef as React.RefObject<HTMLAnchorElement>}
+        >
           <div className="image-wrapper">
             <img src={postPreview.imageUrl} />
           </div>
