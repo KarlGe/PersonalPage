@@ -8,14 +8,12 @@ import post from "./post";
 import gallery from "./imageGallery";
 import siteSettings from "./siteSettings";
 import externalLink from "./contentTypes/externalLink";
-import externalLinkPage from "./externalLinkPage";
 
 export default createSchema({
   name: "default",
   types: schemaTypes.concat([
     externalLink,
     post,
-    externalLinkPage,
     siteSettings,
     category,
     blockContent,

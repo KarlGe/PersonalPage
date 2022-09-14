@@ -41,6 +41,12 @@ export default {
       title: "Body",
       type: "blockContent",
     },
+    {
+      name: "externalLinks",
+      title: "External links",
+      type: "array",
+      of: [{ type: "externalLink" }],
+    },
   ],
 
   preview: {
