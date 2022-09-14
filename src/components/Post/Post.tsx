@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { style } from "./Post.linaria";
 import PostContent from "../PostContent/PostContent";
+import ExternalLinksList from "../ExternalLinksList/ExternalLinksList";
 
 export type Post = {
   slug: {
     current: string;
   };
+  externalLinks: any[];
   body: any[];
   imageUrl: string;
   title: string;
@@ -28,6 +30,7 @@ function Post({ post }: Props) {
         <h1>{post.title}</h1>
       </div>
       <PostContent content={post.body} />
+      <ExternalLinksList linksData={post.externalLinks} />
     </div>
   );
 }

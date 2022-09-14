@@ -9,7 +9,7 @@ function OtherPage({}: Props) {
   useLayoutSettings(null, "default");
 
   const { data, error } = usePostList("Other");
-  return <PostList posts={data} />;
+  return <PostList posts={data} basePath="other" />;
 }
 
 export default OtherPage;

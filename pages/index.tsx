@@ -8,5 +8,5 @@ export default function Home() {
   useLayoutSettings(null, "default");
   const { data, error } = usePostList('Portfolio');
 
-  return <PostList posts={data} />;
+  return <PostList posts={data} basePath="portfolio" />;
 }

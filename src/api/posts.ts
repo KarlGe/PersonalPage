@@ -10,7 +10,7 @@ export const getPostList = async (category: Category) => {
 };
 export const getPost = async (slug: string) => {
   const query =
-    '*[_type == "post" && slug.current == $slug]{body, "imageUrl": mainImage.asset->url, slug, title}';
+    '*[_type == "post" && slug.current == $slug]{body, "imageUrl": mainImage.asset->url, slug, title, externalLinks}';
   const params = { slug };
   return sanityClient.fetch(query, params);
 };

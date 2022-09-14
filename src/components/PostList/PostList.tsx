@@ -2,13 +2,13 @@ import React from "react";
 import PostPreview from "../PostPreview";
 import { listStyle } from "./postList.linaria";
 
-type Props = { posts: any };
+type Props = { posts: any, basePath: string };
 
-function PostList({ posts }: Props) {
+function PostList({ posts, basePath }: Props) {
   return (
     <div className={listStyle}>
       {posts?.map((post) => (
-        <PostPreview key={post.slug.current} basePath="portfolio" postPreview={post} />
+        <PostPreview key={post.slug.current} basePath={basePath} postPreview={post} />
       ))}
     </div>
   );
