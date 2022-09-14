@@ -6,7 +6,7 @@ import { useLayoutSettings } from "../src/hooks/useLayoutSettings";
 
 export default function Home() {
   useLayoutSettings(null, "default");
-  const { data, error } = usePostList();
+  const { data, error } = usePostList('Portfolio');
 
   return <PostList posts={data} />;
 }

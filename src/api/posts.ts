@@ -1,9 +1,11 @@
 import sanityClient from "../sanity";
 
-export const getPostList = async () => {
+export type Category = "Portfolio" | "About" | "Other";
+
+export const getPostList = async (category: Category) => {
   const query =
     '*[_type == "post" && $category in categories[]->title]{body, "imageUrl": mainImage.asset->url, slug, title}';
-  const params = { category: "Portfolio" };
+  const params = { category: category };
   return sanityClient.fetch(query, params);
 };
 export const getPost = async (slug: string) => {

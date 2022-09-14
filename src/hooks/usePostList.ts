@@ -1,7 +1,7 @@
 import useSWRImmutable from "swr/immutable";
-import { getPostList } from "../api/posts";
+import { Category, getPostList } from "../api/posts";
 
-export const usePostList = () => {
-  const { data, error } = useSWRImmutable("posts", getPostList);
+export const usePostList = (category: Category) => {
+  const { data, error } = useSWRImmutable("posts", () => getPostList(category));
   return { data, error };
 };

@@ -1,32 +1,22 @@
 import { useRouter } from "next/router";
-import sanityClient from "../../src/sanity";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Post from "../../src/components/Post";
-import Layout from "../../src/components/Layout/Layout";
 import { useLayoutSettings } from "../../src/hooks/useLayoutSettings";
+import { usePost } from "../../src/hooks/usePost";
 
 function Slug(props) {
   const router = useRouter();
   const { slug } = router.query;
-  const [post, setPost] = useState(null);
-  
+
   useLayoutSettings(null, "post");
+  const { data, error } = usePost(slug as string);
 
-  useEffect(() => {
-    if (!slug) {
-      return;
-    }
-    const query =
-      '*[_type == "post" && slug.current == $slug]{body, "imageUrl": mainImage.asset->url, slug, title}';
-    const params = { slug };
-    sanityClient.fetch(query, params).then((postResults) => {
-      setPost(postResults[0]);
-    });
-  }, [slug]);
 
-  if (!post) {
+  if (!data || !data[0]) {
     return null;
   }
+
+  const post = data[0];
 
   return <Post post={post} />;
 }
