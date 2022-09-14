@@ -5,12 +5,13 @@ import { sizes } from "../../config/vars";
 import BorderOffsetWrapper from "../atoms/BorderOffsetWrapper/BorderOffsetWrapper";
 import { PortableTextComponent } from "@portabletext/react";
 
-type Props = { value: SanityImageSource; width?: number };
+type Props = { imageSource: SanityImageSource; width?: number };
 
-function ImageContent({ value, width }: Props) {
+function ImageContent({ imageSource, width }: Props) {
+
   return (
     <BorderOffsetWrapper filled>
-      <img src={urlForImage(value, width).url()} />
+      <img src={urlForImage(imageSource, width).url()} />
     </BorderOffsetWrapper>
   );
 }

@@ -16,7 +16,11 @@ export const shadows = {
 export const sizes = {
   contentWidth: 840,
   contentWidthWide: 1140,
+
 };
+export const zIndex = {
+  nav: 100,
+}
 export const dimensions = {
   breakpoints: {
     xs: "640px",

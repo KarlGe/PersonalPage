@@ -9,7 +9,7 @@ function AboutView({ aboutData }: Props) {
   return (
     <div className={aboutStyle}>
       <div className="image-wrapper">
-        <ImageContent value={aboutData.mainImage} />
+        <ImageContent imageSource={aboutData.mainImage} />
       </div>
       <div>
         <PostContent content={aboutData.body} />

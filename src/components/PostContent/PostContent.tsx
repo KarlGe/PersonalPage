@@ -7,7 +7,7 @@ type Props = { content: any[] };
 
 const PortableTextComponents = {
   types: {
-    image: (value) => <ImageContent value={value} />,
+    image: (imageData) => <ImageContent imageSource={imageData.value} />,
     imageGallery: ImageGalleryContent,
   },
 };

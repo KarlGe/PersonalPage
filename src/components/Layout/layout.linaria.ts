@@ -1,6 +1,6 @@
 import { makeOffsetBorderPosition } from "./global.linaria";
 import { css } from "linaria";
-import { border, colors, shadows, sizes } from "../../config/vars";
+import { border, colors, shadows, sizes, zIndex } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 
 export const layoutStyle = css`
@@ -68,7 +68,7 @@ export const layoutStyle = css`
       right: 0;
       font-size: 1rem;
       font-weight: 900;
-      z-index: 1;
+      z-index: ${zIndex.nav};
       padding: 0.5rem;
       box-shadow: ${shadows.default};
       background: ${colors.accentColor};
