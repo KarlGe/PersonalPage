@@ -65,5 +65,8 @@ export default {
       type: 'imageGallery',
       options: {hotspot: true},
     },
+    {
+      type: 'videoLink',
+    },
   ],
 }

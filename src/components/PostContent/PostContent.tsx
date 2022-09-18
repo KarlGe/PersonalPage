@@ -2,6 +2,7 @@ import { PortableText } from "@portabletext/react";
 import React from "react";
 import ImageContent from "./ImageContent";
 import ImageGalleryContent from "./ImageGalleryContent";
+import VideoLink from "./VideoLink";
 
 type Props = { content: any[] };
 
@@ -9,6 +10,9 @@ const PortableTextComponents = {
   types: {
     image: (imageData) => <ImageContent imageSource={imageData.value} />,
     imageGallery: ImageGalleryContent,
+    videoLink: (videoData) => (
+      <VideoLink videoUrl={videoData.value.url} type={videoData.value.type} />
+    ),
   },
 };
 
