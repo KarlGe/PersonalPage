@@ -4,7 +4,7 @@ export type Category = "Portfolio" | "About" | "Other";
 
 export const getPostList = async (category: Category) => {
   const query =
-    '*[_type == "post" && $category in categories[]->title]{body, "imageUrl": mainImage.asset->url, slug, title}';
+    '*[_type == "post" && $category in categories[]->title]|order(orderRank){body, "imageUrl": mainImage.asset->url, previewSize, slug, title}';
   const params = { category: category };
   return sanityClient.fetch(query, params);
 };

@@ -1,10 +1,7 @@
 import { colors } from "./../../config/vars";
 import { css } from "linaria";
 import { mediaQueries } from "../../helpers/styleHelpers";
-import {
-  makeOffsetBorderPosition,
-  offsetBorderClass,
-} from "../Layout/global.linaria";
+import { makeOffsetBorderPosition, offsetBorderClass } from "../atoms/BorderOffsetWrapper/borderOffsetWrapper.linaria";
 
 export const aboutStyle = css`
   .image-wrapper {

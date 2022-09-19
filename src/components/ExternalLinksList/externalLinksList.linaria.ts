@@ -4,8 +4,7 @@ import { mediaQueries } from "../../helpers/styleHelpers";
 import {
   makeOffsetBorderPosition,
   offsetBorderClass,
-  offsetBorderWidth,
-} from "../Layout/global.linaria";
+} from "../atoms/BorderOffsetWrapper/borderOffsetWrapper.linaria";
 
 export const style = css`
   ul {

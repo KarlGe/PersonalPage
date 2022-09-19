@@ -1,12 +1,15 @@
+import { cx } from "linaria";
 import Link from "next/link";
 import React from "react";
 import { useElementMousePosition } from "../../hooks/useElementMousePosition";
+import BorderOffsetWrapper from "../atoms/BorderOffsetWrapper/BorderOffsetWrapper";
 import { style } from "./PostPreview.linaria";
 
 export type PostPreview = {
   slug: {
     current: string;
   };
+  previewSize: "default" | "doubleHeight";
   imageUrl: string;
   title: string;
 };
@@ -14,18 +17,15 @@ export type PostPreview = {
 type Props = { postPreview: PostPreview; basePath: string };
 
 function PostPreview({ postPreview, basePath }: Props) {
-  const { elementRef } = useElementMousePosition();
   return (
-    <div className={style}>
+    <div className={cx(style, postPreview.previewSize)}>
       <Link href={`${basePath}/${postPreview.slug.current}`}>
-        <a
-          className="has-offset-border"
-          ref={elementRef as React.RefObject<HTMLAnchorElement>}
-        >
-          <div className="image-wrapper">
-            <img src={postPreview.imageUrl} />
-          </div>
-          <h2>{postPreview.title}</h2>
+        <a>
+          <BorderOffsetWrapper title={postPreview.title} titleLevel="h2">
+            <div className="image-wrapper">
+              <img src={postPreview.imageUrl} />
+            </div>
+          </BorderOffsetWrapper>
         </a>
       </Link>
     </div>

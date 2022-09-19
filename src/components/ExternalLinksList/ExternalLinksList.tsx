@@ -1,4 +1,5 @@
 import React from "react";
+import BorderOffsetWrapper from "../atoms/BorderOffsetWrapper/BorderOffsetWrapper";
 import ImageContent from "../PostContent/ImageContent";
 import { style } from "./externalLinksList.linaria";
 
@@ -24,11 +25,12 @@ function ExternalLinksList({ linksData }: Props) {
               className="has-offset-border"
               target="_blank"
             >
-              <ImageContent
-                withOffsetWrapper={false}
-                imageSource={linkData.image}
-              />
-              <h2>{linkData.title}</h2>
+              <BorderOffsetWrapper title={linkData.title} titleLevel="h2">
+                <ImageContent
+                  withOffsetWrapper={false}
+                  imageSource={linkData.image}
+                />
+              </BorderOffsetWrapper>
             </a>
           </li>
         ))}
