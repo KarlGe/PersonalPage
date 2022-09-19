@@ -20,7 +20,7 @@ export default {
       name: "columns",
       type: "number",
       hidden: ({ parent, value }) => {
-        return parent.type !== gridTypes.grid.value
+        return parent.type !== gridTypes.grid.value;
       },
     },
     {
@@ -29,7 +29,7 @@ export default {
       type: "array",
       of: [
         {
-          type: "image",
+          type: "gridItem",
           options: { hotspot: true },
         },
       ],

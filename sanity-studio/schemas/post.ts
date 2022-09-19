@@ -1,3 +1,8 @@
+const previewSizes = {
+  default: { title: "Default", value: "default" },
+  doubleHeight: { title: "Double Height", value: "doubleHeight" },
+};
+
 export default {
   name: "post",
   title: "Post",
@@ -26,6 +31,14 @@ export default {
       },
     },
     {
+      title: "Preview Size",
+      name: "previewSize",
+      type: "string",
+      options: {
+        list: Object.values(previewSizes),
+      },
+    },
+    {
       name: "categories",
       title: "Categories",
       type: "array",
@@ -47,8 +60,15 @@ export default {
       type: "array",
       of: [{ type: "externalLink" }],
     },
+    {
+      name: "orderRank",
+      title: "Order",
+      type: "string",
+    },
   ],
-
+  initialValue: {
+    previewSize: previewSizes.default.value,
+  },
   preview: {
     select: {
       title: "title",

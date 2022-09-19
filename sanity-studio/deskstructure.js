@@ -1,7 +1,8 @@
 // deskStructure.js
 import S from "@sanity/desk-tool/structure-builder";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
-const singletonTypes = ["siteSettings"];
+const excludeTypes = ["siteSettings", "post"];
 
 export default () =>
   S.list()
@@ -12,7 +13,8 @@ export default () =>
         .child(
           S.document().schemaType("siteSettings").documentId("siteSettings")
         ),
+      orderableDocumentListDeskItem({ type: "post" }),
       ...S.documentTypeListItems().filter(
-        (listItem) => !singletonTypes.includes(listItem.getId())
+        (listItem) => !excludeTypes.includes(listItem.getId())
       ),
     ]);

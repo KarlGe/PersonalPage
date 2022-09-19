@@ -10,6 +10,7 @@ import siteSettings from "./siteSettings";
 import externalLink from "./contentTypes/externalLink";
 import videoLink from "./contentTypes/videoLink";
 import grid from "./contentTypes/grid";
+import gridItem from "./contentTypes/gridItem";
 
 export default createSchema({
   name: "default",
@@ -17,6 +18,7 @@ export default createSchema({
     externalLink,
     videoLink,
     grid,
+    gridItem,
     post,
     siteSettings,
     category,
