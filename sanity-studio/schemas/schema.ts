@@ -9,12 +9,14 @@ import gallery from "./imageGallery";
 import siteSettings from "./siteSettings";
 import externalLink from "./contentTypes/externalLink";
 import videoLink from "./contentTypes/videoLink";
+import grid from "./contentTypes/grid";
 
 export default createSchema({
   name: "default",
   types: schemaTypes.concat([
     externalLink,
     videoLink,
+    grid,
     post,
     siteSettings,
     category,
