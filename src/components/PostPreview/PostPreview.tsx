@@ -21,7 +21,11 @@ function PostPreview({ postPreview, basePath }: Props) {
     <div className={cx(style, postPreview.previewSize)}>
       <Link href={`${basePath}/${postPreview.slug.current}`}>
         <a>
-          <BorderOffsetWrapper title={postPreview.title} titleLevel="h2">
+          <BorderOffsetWrapper
+            interactible
+            title={postPreview.title}
+            titleLevel="h2"
+          >
             <div className="image-wrapper">
               <img src={postPreview.imageUrl} />
             </div>

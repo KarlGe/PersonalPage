@@ -5,19 +5,25 @@ export const useElementMousePosition = () => {
   const elementRef = useRef<HTMLElement>(null);
 
   const setAttributes = (posX: number, posY: number) => {
+    if (!elementRef.current) {
+      return;
+    }
     elementRef.current.style.setProperty("--mouse-pos-x", `${posX}`);
     elementRef.current.style.setProperty("--mouse-pos-y", `${posY}`);
   };
 
   const getMousePosition = (e: MouseEvent) => {
-    const { left, top, width, height } =
+    if (!elementRef.current) {
+      return;
+    }
+    const { left, y, top, width, height } =
       elementRef.current.getBoundingClientRect();
-    const { pageX, pageY } = e;
+    const { clientX, clientY } = e;
 
     /**
      * We set the position as a percentage of the element we're hovering over
      */
-    setAttributes((pageX - left) / width, (pageY - top) / height);
+    setAttributes((clientX - left) / width, (clientY - top) / height);
   };
   const resetPosition = () => {
     setTimeout(() => setAttributes(0, 0), 100);

@@ -33,9 +33,9 @@ export const style = css`
     position: absolute;
     transition: 200ms;
     border-radius: ${border.radius.default};
-    ${makeOffsetBorderPosition(2, -2, 6, 2)}
+    ${makeOffsetBorderPosition(2, -2, -2, 2)}
     ${mediaQueries.sm} {
-    ${makeOffsetBorderPosition(2, -1, 3, 2)}
+      ${makeOffsetBorderPosition(2, -1, -1, 2)}
       bottom: var(--bottom-height);
     }
     z-index: 0;
@@ -53,14 +53,24 @@ export const style = css`
     position: relative;
     z-index: 1;
   }
-  &:hover,
-  &:focus,
-  &:active {
-    &:after {
-      ${makeOffsetBorderPosition(2, -1, -1, 2)}
+  &.interactible {
+    &::after{
+      ${makeOffsetBorderPosition(2, -2, 6, 2)}
     }
-    .title {
-      transform: translateX(${offsetBorderWidth}px);
+    ${mediaQueries.sm} {
+      &::after {
+        ${makeOffsetBorderPosition(2, -1, 3, 2)}
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      &:after {
+        ${makeOffsetBorderPosition(2, -1, 0, 2)}
+      }
+      .title {
+        transform: translateX(${offsetBorderWidth}px);
+      }
     }
   }
 `;
