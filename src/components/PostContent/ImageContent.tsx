@@ -3,7 +3,6 @@ import { urlForImage } from "../../sanity/sanity";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { sizes } from "../../config/vars";
 import BorderOffsetWrapper from "../atoms/BorderOffsetWrapper/BorderOffsetWrapper";
-import { PortableTextComponent } from "@portabletext/react";
 
 type Props = {
   imageSource: SanityImageSource;
@@ -12,9 +11,12 @@ type Props = {
 };
 
 function ImageContent({ imageSource, width, withOffsetWrapper }: Props) {
-  const imgUrl = urlForImage(imageSource, width).url(); 
-  if(!withOffsetWrapper) { 
-    return <img src={imgUrl} />
+  const imgUrl = urlForImage(imageSource, width)?.url();
+  if (!imgUrl) {
+    return null;
+  }
+  if (!withOffsetWrapper) {
+    return <img src={imgUrl} />;
   }
   return (
     <BorderOffsetWrapper filled>

@@ -1,4 +1,4 @@
-import { cx } from "linaria";
+import { cx } from "@linaria/core";
 import React, { ReactNode } from "react";
 import { useElementHeight } from "../../../hooks/useElementHeight";
 import { useElementMousePosition } from "../../../hooks/useElementMousePosition";
@@ -10,7 +10,6 @@ type Props = {
   filled?: boolean;
   title?: string;
   titleLevel?: HeaderLevel;
-  interactible?: boolean;
   wrapperType?: "a" | "div";
 };
 
@@ -20,7 +19,6 @@ function BorderOffsetWrapper({
   filled,
   title,
   titleLevel,
-  interactible,
 }: Props) {
   const { elementRef } = useElementMousePosition();
   const { heightRef, elementHeight } = useElementHeight();
@@ -29,7 +27,7 @@ function BorderOffsetWrapper({
 
   return (
     <Wrapper
-      className={cx(style, offsetBorderClassName, interactible && 'interactible', filled && "filled")}
+      className={cx(style, offsetBorderClassName, filled && "filled")}
       ref={elementRef as React.RefObject<HTMLDivElement>}
       style={{ "--bottom-height": `${elementHeight}px` }}
     >
@@ -50,7 +48,6 @@ BorderOffsetWrapper.defaultProps = {
   wrapperType: "div",
   title: undefined,
   titleLevel: "span",
-  interactible: false,
 };
 
 export default BorderOffsetWrapper;

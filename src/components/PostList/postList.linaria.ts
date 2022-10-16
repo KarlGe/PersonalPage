@@ -1,4 +1,4 @@
-import { css } from "linaria";
+import { css } from "@linaria/core";
 import { mediaQueries } from "../../helpers/styleHelpers";
 
 export const listStyle = css`

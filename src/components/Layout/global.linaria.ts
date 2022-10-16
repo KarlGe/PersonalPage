@@ -1,5 +1,5 @@
-import { css } from "linaria";
-import { border, colors } from "../../config/vars";
+import { css } from "@linaria/core";
+import { colors } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 
 export const globalStyles = css`

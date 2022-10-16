@@ -1,4 +1,4 @@
-import { css } from "linaria";
+import { css } from "@linaria/core";
 import { border, colors } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 import {
@@ -24,6 +24,11 @@ export const style = css`
       &:last-child {
         ${offsetBorderClass}::after {
           border-radius: 100%;
+        }
+        a:hover, a:focus {
+          ${offsetBorderClass}::after {
+            border-radius: ${border.radius.default};
+          }
         }
       }
       a${offsetBorderClass} {

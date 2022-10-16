@@ -1,4 +1,4 @@
-import { css } from "linaria";
+import { css } from "@linaria/core";
 import { border, colors } from "../../../config/vars";
 import { mediaQueries } from "../../../helpers/styleHelpers";
 
@@ -52,25 +52,5 @@ export const style = css`
   > * {
     position: relative;
     z-index: 1;
-  }
-  &.interactible {
-    &::after{
-      ${makeOffsetBorderPosition(2, -2, 6, 2)}
-    }
-    ${mediaQueries.sm} {
-      &::after {
-        ${makeOffsetBorderPosition(2, -1, 3, 2)}
-      }
-    }
-    &:hover,
-    &:focus,
-    &:active {
-      &:after {
-        ${makeOffsetBorderPosition(2, -1, 0, 2)}
-      }
-      .title {
-        transform: translateX(${offsetBorderWidth}px);
-      }
-    }
   }
 `;

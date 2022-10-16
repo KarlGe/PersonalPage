@@ -1,4 +1,4 @@
-import { css } from "linaria";
+import { css } from "@linaria/core";
 import { border, colors } from "../../config/vars";
 
 export const style = css`

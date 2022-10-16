@@ -1,5 +1,4 @@
-import { css } from "linaria";
-import { border } from "../../config/vars";
+import { css } from "@linaria/core";
 
 export const postStyle = css`
   img {

@@ -1,5 +1,4 @@
-import { makeOffsetBorderPosition } from "./global.linaria";
-import { css } from "linaria";
+import { css } from "@linaria/core";
 import { border, colors, shadows, sizes, zIndex } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
 

@@ -13,8 +13,11 @@ const builder = imageUrlBuilder(client);
 export function urlForImage(
   source,
   width: number = sizes.contentWidth,
-  height: number = undefined
+  height?: number
 ) {
+  if (!source) {
+    return undefined;
+  }
   if (height) {
     return builder.image(source).width(width).height(height);
   }
