@@ -9,12 +9,12 @@ type Props = { content: any[] };
 
 const PortableTextComponents = {
   types: {
-    image: (imageData) => <ImageContent imageSource={imageData.value} />,
+    image: (imageData: any) => <ImageContent imageSource={imageData.value} />,
     imageGallery: ImageGalleryContent,
-    videoLink: (videoData) => (
+    videoLink: (videoData: any) => (
       <VideoLink videoUrl={videoData.value.url} type={videoData.value.type} />
     ),
-    grid: (gridData) => (
+    grid: (gridData: any) => (
       <Grid content={gridData.value} />
     ),
   },

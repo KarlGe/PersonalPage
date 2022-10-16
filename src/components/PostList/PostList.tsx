@@ -7,7 +7,7 @@ type Props = { posts: any; basePath: string };
 function PostList({ posts, basePath }: Props) {
   return (
     <div className={listStyle}>
-      {posts?.map((post) => (
+      {posts?.map((post: any) => (
         <PostPreview
           key={post.slug.current}
           basePath={basePath}

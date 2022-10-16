@@ -1,8 +1,9 @@
 // import App from 'next/app'
+import { AppProps } from "next/app";
 import React from "react";
 import Layout from "../src/components/Layout/Layout";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Component {...pageProps} />

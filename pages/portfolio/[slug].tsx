@@ -4,7 +4,7 @@ import Post from "../../src/components/Post";
 import { useLayoutSettings } from "../../src/hooks/useLayoutSettings";
 import { usePost } from "../../src/hooks/usePost";
 
-function Slug(props) {
+function Slug() {
   const router = useRouter();
   const { slug } = router.query;
 

@@ -5,7 +5,7 @@ import ImageGallery from "../ImageGallery/ImageGallery";
 type Props = { value: any };
 
 function ImageGalleryContent({ value }: Props) {
-  const images = value.images.map((imageData) => ({
+  const images = value.images.map((imageData: any) => ({
     original: urlForImage(imageData),
     thumbnail: urlForImage(imageData, 100, 100),
   }));

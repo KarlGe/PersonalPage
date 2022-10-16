@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import { LayoutVariant, useStore } from "../store/store";
 
 export const useLayoutSettings = (
-  pageTitle: string,
+  pageTitle: string | null,
   layoutVariant: LayoutVariant
 ) => {
   const { setPageTitle, setLayoutVariant } = useStore();
   useEffect(() => {
-    setPageTitle(pageTitle);
+    if (pageTitle) {
+      setPageTitle(pageTitle);
+    }
     setLayoutVariant(layoutVariant);
   }, []);
 };

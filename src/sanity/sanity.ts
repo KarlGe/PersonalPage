@@ -1,3 +1,4 @@
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import sanityClient from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { sizes } from "../config/vars";
@@ -11,7 +12,7 @@ const client = sanityClient({
 
 const builder = imageUrlBuilder(client);
 export function urlForImage(
-  source,
+  source: SanityImageSource,
   width: number = sizes.contentWidth,
   height?: number
 ) {
