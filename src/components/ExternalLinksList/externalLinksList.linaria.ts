@@ -21,16 +21,6 @@ export const style = css`
       }
       list-style: none;
       text-align: center;
-      &:last-child {
-        ${offsetBorderClass}::after {
-          border-radius: 100%;
-        }
-        a:hover, a:focus {
-          ${offsetBorderClass}::after {
-            border-radius: ${border.radius.default};
-          }
-        }
-      }
       a${offsetBorderClass} {
         &::after {
           ${makeOffsetBorderPosition(2, -1, 8, 2)}
