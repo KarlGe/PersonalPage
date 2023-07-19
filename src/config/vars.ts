@@ -10,6 +10,11 @@ export const border = {
     big: "2rem",
   },
 };
+export const animations = {
+  transition: {
+    default: 200,
+  }
+}
 export const shadows = {
   default: "0 1px 10px rgba(0,0,0,0.4)",
 };

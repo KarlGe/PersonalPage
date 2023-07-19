@@ -21,17 +21,13 @@ function ExternalLinksList({ linksData }: Props) {
       <ul>
         {linksData.map((linkData) => (
           <li key={linkData._id}>
-            <BorderOffsetLink
-              href={linkData.url}
-              target="_blank"
-              title={linkData.title}
-              titleLevel="h2"
-            >
+            <a href={linkData.url} target="_blank">
               <ImageContent
                 withOffsetWrapper={false}
                 imageSource={linkData.image}
               />
-            </BorderOffsetLink>
+              <h2>{linkData.title}</h2>
+            </a>
           </li>
         ))}
       </ul>

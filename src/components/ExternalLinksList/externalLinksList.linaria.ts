@@ -1,50 +1,45 @@
 import { css } from "@linaria/core";
-import { border, colors } from "../../config/vars";
+import { animations, border, colors } from "../../config/vars";
 import { mediaQueries } from "../../helpers/styleHelpers";
-import {
-  makeOffsetBorderPosition,
-  offsetBorderClass,
-} from "../atoms/BorderOffsetWrapper/borderOffsetWrapper.linaria";
+
+const externalLinkSquare = 126;
 
 export const style = css`
   ul {
     padding: 0;
-    margin-top: 4rem;
+    padding-top: 2rem;
     display: flex;
     flex-flow: wrap;
-    gap: 2rem;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    row-gap: 2rem;
+    max-width: 640px;
+    margin: auto;
     li {
-      width: 30%;
-      ${mediaQueries.sm} {
-        width: 15%;
-      }
       list-style: none;
       text-align: center;
-      a${offsetBorderClass} {
-        &::after {
-          ${makeOffsetBorderPosition(2, -1, 8, 2)}
-          ${mediaQueries.sm} {
-            ${makeOffsetBorderPosition(2, -1, 3, 2)}
-          }
-        }
+      width: 150px;
+      ${mediaQueries.sm} {
+      width: 200px;
+
+      }
+      img {
+        height: ${externalLinkSquare}px;
+        width: ${externalLinkSquare}px;
+        object-fit: contain;
+      }
+      a {
         display: block;
         text-decoration: none;
-        img {
-          display: block;
+        h2 {
+          transition: ${animations.transition.default}ms;
+          padding: 0 1rem;
         }
         &:hover,
         &:focus {
           h2 {
-            color: ${colors.lightColor};
-          }
-          &::after {
             border-radius: ${border.radius.default};
-            ${makeOffsetBorderPosition(0, 0, -1, 0)};
-            top: 80%;
-            ${mediaQueries.sm} {
-              top: 80%;
-            }
+            background-color: ${colors.accentColor};
+            color: ${colors.lightColor};
           }
         }
       }
